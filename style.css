@@ -1,0 +1,181 @@
+
+:root{
+	--pink: #ff6fb3;
+	--pink-deep: #ff4f9a;
+	--bg-dark: #070707;
+	--card-dark: #0f0f10;
+	--muted: #ffeaf3;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: radial-gradient(1200px 600px at 10% 10%, rgba(255,111,179,0.06), transparent),
+				linear-gradient(180deg, #050505 0%, #0b0b0b 100%);
+	color:var(--muted);
+	display:flex;
+	/* align content at the top so the top-letter appears above the card */
+	align-items:flex-start;
+	justify-content:center;
+	padding:16px;
+}
+
+.page{width:100%;max-width:980px}
+.card{
+	background: linear-gradient(180deg, rgba(18,18,18,0.9), rgba(10,10,10,0.95));
+	border-radius:12px;
+	padding:14px;
+	border:3px solid var(--pink);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+	/* allow absolutely-positioned background video to be clipped by card radius */
+	position:relative;
+	overflow:hidden;
+}
+
+.top-letter{margin:0;width:100%;max-width:980px}
+.top-letter-inner{background:linear-gradient(180deg, rgba(255,111,179,0.03), rgba(0,0,0,0.18));padding:8px 10px;border-radius:10px;border:2px solid rgba(255,111,179,0.18);box-shadow:0 4px 12px rgba(0,0,0,0.28)}
+.top-letter-title{margin:0 0 6px;color:var(--pink);font-size:1.04rem}
+.top-letter-body{color:#ffdff3}
+.top-letter-body p{margin:5px 0;line-height:1.5;font-size:0.96rem}
+.top-letter .sign{margin-top:6px}
+
+
+.card-header h1{margin:0;font-size:1.85rem;color:#fff;letter-spacing:0.45px}
+.card-header h2{margin:0;color:var(--pink);font-weight:600;font-size:0.96rem}
+
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:12px}
+.layout-label{color:#fff;font-size:0.95rem}
+.layout-label select{background:#0b0b0b;color:#fff;border:1px solid rgba(255,255,255,0.05);padding:7px 10px;border-radius:8px}
+.file-inputs{display:flex;gap:8px}
+.file-label{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15));padding:8px 10px;border-radius:10px;border:1px dashed rgba(255,255,255,0.04);cursor:pointer;font-size:0.9rem;color:#fff}
+.file-label input{display:none}
+
+.image-area{margin:0;border-radius:10px;overflow:hidden;position:relative}
+.collage{display:none;gap:8px;align-items:center}
+.collage img{flex:1 1 0;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+.grid{display:none;gap:8px;grid-template-columns:repeat(2,1fr);}
+.grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px}
+.media-img{object-fit:cover;display:block;max-width:100%;height:auto;opacity:0;transform:translateY(8px);transition:opacity 420ms cubic-bezier(.2,.9,.3,1),transform 420ms cubic-bezier(.2,.9,.3,1)}
+.media-img.loaded{opacity:1;transform:none}
+.img-top{opacity:0;transform:translateY(6px);transition:opacity 420ms ease,transform 420ms ease}
+.img-top.loaded{opacity:1;transform:none}
+.bg-video{opacity:0;transition:opacity 700ms ease}
+body.has-bg-video .bg-video.loaded{opacity:0.95}
+.tl-pair img,.tl-single img{opacity:0;transform:translateY(8px);transition:opacity 420ms ease,transform 420ms ease}
+.tl-pair img.loaded,.tl-single img.loaded{opacity:1;transform:none}
+.img-right{width:38%;height:auto;object-fit:cover;border-radius:10px;float:right;margin-left:14px;display:none}
+
+.letter{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));padding:14px;border-radius:12px;margin-top:0;margin-bottom:0;color:#ffdff3}
+.letter p{line-height:1.6;margin:10px 0;color:#ffdff3}
+.signature{color:var(--pink);font-weight:700}
+.sign{margin-top:14px}
+
+.card-footer{margin-top:0;color:#ffdff3;font-size:0.85rem}
+
+/* remove gap between letter and timeline */
+.timeline{margin-top:0;padding-top:0}
+
+/* remove gap between card header and top-letter so they sit flush */
+.card-header{margin-bottom:0;padding-bottom:0}
+.top-letter{margin-top:0}
+.top-letter-inner{padding-top:6px}
+
+/* layout states */
+.image-area.layout-top .img-top{display:block}
+.image-area.layout-top .collage,.image-area.layout-top .img-right,.image-area.layout-top .grid,.image-area.layout-top #videoPreview{display:none}
+
+.image-area.layout-collage .collage{display:flex}
+.image-area.layout-collage .img-top,.image-area.layout-collage .img-right,.image-area.layout-collage .grid,.image-area.layout-collage #videoPreview{display:none}
+
+.image-area.layout-grid .grid{display:grid}
+.image-area.layout-grid .img-top,.image-area.layout-grid .collage,.image-area.layout-grid .img-right,.image-area.layout-grid #videoPreview{display:none}
+
+.image-area.layout-right .img-right{display:block}
+.image-area.layout-right .img-top,.image-area.layout-right .collage,.image-area.layout-right .grid,.image-area.layout-right #videoPreview{display:none}
+
+.image-area.layout-video #videoPreview{display:block}
+.image-area.layout-video .img-top,.image-area.layout-video .collage,.image-area.layout-video .grid,.image-area.layout-video .img-right{display:none}
+
+/* responsive */
+@media (max-width:720px){
+	.card{padding:16px}
+	.img-top{height:140px}
+	.collage img{height:90px}
+	.img-right{float:none;width:100%;margin:8px 0}
+}
+
+/* background video (disabled by default) */
+.bg-video{display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:0.95}
+body.has-bg-video .bg-video{display:block}
+/* ensure page content sits above the background video */
+.page{position:relative;z-index:2}
+
+/* Timeline styles */
+.timeline{margin-top:0;padding:0 8px}
+.timeline-title{color:#fff;margin:0 0 6px;font-size:1.1rem}
+.timeline-item{position:relative;padding:16px 12px 16px 42px;border-left:2px solid rgba(255,111,179,0.08);margin-bottom:18px}
+.tl-dot{position:absolute;left:12px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px rgba(255,111,179,0.06)}
+.tl-content{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));padding:12px;border-radius:10px}
+.tl-content h4{margin:0 0 8px;color:#fff}
+.tl-pair{display:flex;gap:8px}
+.tl-pair img{width:50%;aspect-ratio:4/3;object-fit:contain;border-radius:8px;object-position:center;background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.06));padding:6px}
+.tl-single img{width:100%;aspect-ratio:4/3;object-fit:contain;border-radius:8px;object-position:center;background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.06));padding:6px}
+.caption{margin:8px 0 0;color:#ffdff3}
+
+@media (max-width:720px){
+	.tl-pair img{height:100px}
+	.tl-single img{height:160px}
+}
+
+
+@media (max-width:420px){
+	.card-header h1{font-size:1.6rem}
+	.card-header h2{font-size:1rem}
+	.file-label{font-size:0.85rem;padding:6px 8px}
+}
+
+/* small visual accent */
+.card::after{content:'';position:absolute;left:calc(50% - 220px);top:-40px;width:420px;height:360px;background:radial-gradient(circle at 20% 20%, rgba(255,111,179,0.06), transparent 25%), radial-gradient(circle at 80% 80%, rgba(255,79,154,0.04), transparent 25%);pointer-events:none;transform:translateX(-50%);z-index:-1}
+
+/* in-card background video styling (set src in index.html to enable) */
+.card-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.28;pointer-events:none;border-radius:inherit;filter:brightness(0.9) saturate(1.05)}
+
+/* overlay sits above the video but below content to improve contrast */
+.card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,3,3,0.18), rgba(0,0,0,0.45));z-index:2;pointer-events:none}
+
+/* keep all normal card children above the background video + overlay */
+.card > :not(.card-bg-video){position:relative;z-index:3}
+
+/* slight hover 'lift' to feel interactive */
+.card{transition:transform 260ms cubic-bezier(.2,.9,.3,1),box-shadow 260ms ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 46px rgba(0,0,0,0.55)}
+
+/* header refinements */
+.card-header{padding:6px 2px;margin-bottom:6px}
+.card-header-inner{display:flex;align-items:center;gap:12px}
+.hdr-title{font-size:1.9rem;margin:0;color:#fff}
+.hdr-sub{margin:0;color:var(--pink);font-weight:600;font-size:0.95rem}
+.hdr-heart{transform:translateY(2px);filter:drop-shadow(0 2px 6px rgba(255,111,179,0.06))}
+
+/* glass / backdrop for top-letter for nicer contrast */
+.top-letter-inner{background:linear-gradient(180deg, rgba(255,111,179,0.04), rgba(0,0,0,0.22));padding:10px;border-radius:10px;border:1px solid rgba(255,111,179,0.14);box-shadow:0 6px 16px rgba(0,0,0,0.35);backdrop-filter: blur(6px)}
+
+/* media polish */
+.media-img{border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(0,0,0,0.45);border-radius:8px}
+.img-top{border-radius:10px}
+
+/* timeline dot animation */
+@keyframes pulse {0%{box-shadow:0 0 0 4px rgba(255,111,179,0.04)}50%{box-shadow:0 0 0 10px rgba(255,111,179,0.06)}100%{box-shadow:0 0 0 4px rgba(255,111,179,0.04)}}
+.tl-dot{animation:pulse 2200ms infinite ease-in-out}
+
+.tl-content{transition:transform 220ms ease,box-shadow 220ms ease}
+.tl-content:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,0.45)}
+
+/* reduce video opacity for print and remove autoplay for accessibility in some PDF contexts */
+@media print{
+	.card-bg-video{display:none}
+	.card{box-shadow:none;border:0}
+}
+

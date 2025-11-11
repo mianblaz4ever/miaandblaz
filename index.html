@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Happy 3rd Monthsary</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="page">
+		<main class="card">
+			<!-- Card background video: edit the <source src=""> below to point to a local video file (mp4/webm).
+				 The video will sit behind the card content. To disable, leave src empty. -->
+			<video class="card-bg-video" autoplay muted loop playsinline>
+				<source src="miaandblaz.mp4" type="video/mp4">
+				<!-- fallback text -->
+			</video>
+			<header class="card-header">
+				<div class="card-header-inner">
+					<h1 class="hdr-title">Happy 3rd Monthsary</h1>
+					<!-- small decorative heart -->
+					<svg class="hdr-heart" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+						<path fill="var(--pink)" d="M12 21s-7.5-4.35-10-7.4C-1.5 8 4 3 7 6c1.5 1.6 2.5 2.2 5 4 2.5-1.8 3.5-2.4 5-4 3-3 8.5 2 5 7.6C19.5 16.65 12 21 12 21z"></path>
+					</svg>
+					<h2 class="hdr-sub">to my sweetest love</h2>
+				</div>
+			</header>
+
+			<!-- Top letter (moved inside the card). Edit the paragraphs to change the letter. -->
+			<section class="top-letter" aria-label="Full letter at top">
+				<div class="top-letter-inner">
+					<h2 class="top-letter-title">To my love — 3rd Monthsary</h2>
+					<div class="top-letter-body">
+						<!-- Replace the paragraphs below with your full letter text -->
+						<p>Miaming,</p>
+						<p>Hi baby ko, it has been three months already, at sobrang saya ko na bumalik tayo sa isa't isa.
+                        <p>These pictures na nilagay ko is one of the most memorable thing para saakin. Yung first photo that I put is the first photo na nag pop-up sa utak ko noong inosente pa tayo at wala pa masyadong alam sa mga relasyon.
+                        <p>But luckily, nag grow tayo together at naitama and mga pagkakamali natin dati. Although on and off tayo, we still managed to find ourselves within each other.
+                        <p>The second photo, just shows how beautiful you are and it represents how I still have a crush on you. You look stunning and I cannot help but stare at my computer screen whenever I wake up whenever call. It just keeps me alive and motivated to go study for our future.
+                        <p>Last but not the least, yung way mo para maipakita mo saakin yung efforts mo through drawing. Hindi lang ang ganda mo ang inaadmire ko pati narin ang galing mo sa pag drawing. Naiingit ako minsan dahil hindi ko kayang gawin ang mga ginagawa mo para saakin.
+                        <p>Always remember that I will be by your side no matter what happens. I will make sure to protect you pag may nangbabastos sa'yo. Ipapack natin sila together at ipapakita natin sakanila ang ating pinagsamang lakas na nagmumula sa mata ni kotaro at sa kalibugan ni trust.</p>
+						<p class="sign">Forever yours,<br><span class="signature">[Blazie]</span></p>
+					</div>
+				</div>
+			</section>
+
+			<!--
+				Media setup removed from interactive controls.
+				To add photos/videos, edit the <img src=> and <video><source src=> values below directly in this file.
+				Change the layout by editing the `class` on the <section id="imageArea"> element (layout-top, layout-collage, layout-grid, layout-right, layout-video).
+			-->
+
+			<!-- Image & media area (multiple layouts + video) -->
+			<!-- Background video (disabled by default). To enable, set a source below and add class="has-bg-video" to the <body> tag. -->
+			<video id="bgVideo" class="bg-video" autoplay muted loop playsinline>
+				<source src="" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+
+			<section class="image-area layout-top" id="imageArea">
+				<!-- Examples: edit the src attributes below to point to your files.
+					 Example image paths: images/photo1.jpg, images/photo2.jpg, images/photo3.jpg, images/photo4.jpg
+					 Example video path: videos/video.mp4
+					 To change layout, edit this element's class: e.g. class="image-area layout-grid" -->
+
+				<!-- Top banner image -->
+				<img id="imgTop" class="img-top" src="" alt="Top photo">
+
+				<!-- Inline collage (3 images) -->
+				<div class="collage" id="collage" aria-hidden="true">
+					<img id="imgA" class="media-img" src="" alt="Photo A">
+					<img id="imgB" class="media-img" src="" alt="Photo B">
+					<img id="imgC" class="media-img" src="" alt="Photo C">
+				</div>
+
+				<!-- 4-up grid -->
+				<div class="grid" id="grid" aria-hidden="true">
+					<img id="img1" class="media-img" src="" alt="Photo 1">
+					<img id="img2" class="media-img" src="" alt="Photo 2">
+					<img id="img3" class="media-img" src="" alt="Photo 3">
+					<img id="img4" class="media-img" src="" alt="Photo 4">
+				</div>
+
+				<!-- Right portrait image -->
+				<img id="imgRight" class="img-right media-img" src="" alt="Right photo">
+
+				<!-- Video element: edit the <source> below or set the video src attribute directly -->
+				<video id="videoPreview" controls style="border-radius:10px;max-width:100%;height:auto;background:#000">
+					<source src="" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</section>
+
+			
+
+		<!-- Timeline: edit image src attributes below to point to your files. -->
+		<section class="timeline" aria-label="Memories timeline">
+			<h3 class="timeline-title">Our Moments</h3>
+
+			<!-- Timeline item 1: two pictures side-by-side -->
+			<div class="timeline-item" id="timeline-1">
+				<div class="tl-dot"></div>
+				<div class="tl-content">
+					<h4>Our cute photo together.</h4>
+					<div class="tl-pair">
+						<img id="timeline1-imgA" src="blhaz.png" alt="Timeline 1 photo A">
+						<img id="timeline1-imgB" src="meeyuh.png" alt="Timeline 1 photo B">
+					</div>
+					<p class="caption">Naalala mo pa ba, 'yung our memorable photo together.</p>
+				</div>
+			</div>
+
+			<!-- Timeline item 2: single photo (third photo) -->
+			<div class="timeline-item" id="timeline-2">
+				<div class="tl-dot"></div>
+				<div class="tl-content">
+					<h4>My cute little baby.</h4>
+					<div class="tl-single">
+						<img id="timeline2-img" src="babyko101010.jpg" alt="Timeline 2 photo">
+					</div>
+					<p class="caption">Your beauty is beyond my explanation, I cannot even describe it.</p>
+				</div>
+			</div>
+
+			<!-- Timeline item 3: single photo (fourth photo) -->
+			<div class="timeline-item" id="timeline-3">
+				<div class="tl-dot"></div>
+				<div class="tl-content">
+					<h4>Why I love your efforts.</h4>
+					<div class="tl-single">
+						<img id="timeline3-img" src="drawingngbabyko.jpg" alt="Timeline 3 photo">
+					</div>
+					<p class="caption">I always admire your artistic side, It makes me envy you more.</p>
+				</div>
+			</div>
+		</section>
+		</main>
+	</div>
+
+</body>
+</html>
+
+<script>
+// Small script to add a `loaded` class when images/videos finish loading so CSS transitions run.
+;(function(){
+	// images inside the page
+	const imgs = document.querySelectorAll('img');
+	imgs.forEach(img => {
+		// if already loaded (from cache), mark loaded
+		if (img.complete && img.naturalWidth !== 0) {
+			img.classList.add('loaded');
+		} else {
+			img.addEventListener('load', () => img.classList.add('loaded'));
+			// optional: remove class on error
+			img.addEventListener('error', () => img.classList.remove('loaded'));
+		}
+	});
+
+	// video(s): mark when enough data to show
+	const videos = document.querySelectorAll('video');
+	videos.forEach(v => {
+		// if the video has readyState >= 2 (HAVE_CURRENT_DATA) mark loaded
+		if (v.readyState >= 2) {
+			v.classList.add('loaded');
+		} else {
+			v.addEventListener('loadeddata', () => v.classList.add('loaded'));
+			v.addEventListener('error', () => v.classList.remove('loaded'));
+		}
+	});
+})();
+</script>
